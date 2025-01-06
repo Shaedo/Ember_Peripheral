@@ -1,6 +1,4 @@
  /*** LORA CONFIG***/ 
-
-
     #define RSSI_INIT_TX_THRESHOLD -50 
     // attempt to prevent simultaneous transmissions from multipe devices
     // the effectiveness is debatable and this step may be removed
@@ -37,6 +35,14 @@
     //LoRa CRC: enabled, 2 bytes
   */
 
- /*** LORA MESSAGE TYPE***/
-  #define REQUESTTYPE_REPORT 10 //controller -> peripheral
-  #define RETURNTYPE_REPORT 101 // peripheral -> controller
+  /*** LORA MESSAGE TYPE***/
+    //controller -> peripherals
+    #define REQUESTTYPE_UPDATE_ID 0
+    #define REQUESTTYPE_SLEEP 1
+    #define REQUESTTYPE_REPORT 10
+    // peripheral -> controller
+    #define RETURNTYPE_REGISTRATION 100 
+    #define RETURNTYPE_REPORT 101
+
+  /*** LORA CONST***/
+      #define ALL_PERIPHERALS 255  // Messages are processed if they match the peripheral's id or ALL_PERIPHERALS 
